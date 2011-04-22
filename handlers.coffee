@@ -5,3 +5,6 @@ exports.start = (callback) ->
 
 exports.upload = (callback) ->
   callback 'Hello upload'
+
+exports.notFound = (callback) ->
+  callback 404, 'Not Found'
