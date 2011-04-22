@@ -10,14 +10,14 @@ exports.start = (route, handle) ->
     route handle, pathname, (args...) ->
       [ code, headers, body ] = args
 
-      if args.length is 1
-        # Permits supplying only a response body.
+      unless headers?
+        # One argument given; permits supplying only a response body.
         body    = code
         code    = 200
         headers = {}
 
-      else if args.length is 2
-        # Permits skipping the headers.
+      else unless body?
+        # Two arguments given; permits skipping the headers.
         body    = headers
         headers = {}
 
