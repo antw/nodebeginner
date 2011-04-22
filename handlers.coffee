@@ -1,17 +1,7 @@
 # Given a request, handlers perform actions.
 
-exports.start = ->
-  console.log 'Request handler "start" was called'
+exports.start = (callback) ->
+  setTimeout (-> callback 200, {}, 'Hello start'), 10000
 
-  sleep = (ms) ->
-    startTime = new Date().getTime()
-    while new Date().getTime() < startTime + ms
-      yes
-
-  sleep 10000
-
-  'Hello start'
-
-exports.upload = ->
-  console.log 'Request handler "upload" was called'
-  'Hello upload'
+exports.upload = (callback) ->
+  callback 200, {}, 'Hello upload'

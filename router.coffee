@@ -1,7 +1,6 @@
 # An extremely primitive router.
-exports.route = (handle, pathname) ->
+exports.route = (handle, pathname, callback) ->
   if handle[pathname]?
-    handle[pathname]()
+    handle[pathname](callback)
   else
-    console.log "No request handler for #{pathname}"
-    '404 Not Found'
+    callback 404, {}, '404 Not Found'

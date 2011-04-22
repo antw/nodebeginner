@@ -4,16 +4,18 @@ url  = require 'url'
 # Starts a simple web server on port 8888.
 exports.start = (route, handle) ->
 
-  http.createServer((request, response) ->
+  http.createServer (request, response) ->
     pathname = url.parse(request.url).pathname
 
-    console.log "Request received: #{pathname}"
+    route handle, pathname, (code, headers, body) ->
+      headers['Content-Type'] or= 'text/html'
 
-    content = route handle, pathname
+      response.writeHead code, headers
+      response.write body
+      response.end()
 
-    response.writeHead 200, 'Content-Type': 'text/html'
-    response.write content
-    response.end()
-  ).listen(8888)
+      console.log "#{code} - #{pathname}"
+
+  .listen(8888)
 
   console.log 'Server started.'
