@@ -7,9 +7,7 @@ exports.start = (route, handle) ->
   http.createServer (request, response) ->
     pathname = url.parse(request.url).pathname
 
-    route handle, pathname, (args...) ->
-      [ code, headers, body ] = args
-
+    route handle, pathname, (code, headers, body) ->
       unless headers?
         # One argument given; permits supplying only a response body.
         body    = code
