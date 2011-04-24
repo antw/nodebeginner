@@ -8,12 +8,8 @@ exports.start = (route, handle) ->
     pathname = url.parse(request.url).pathname
 
     console.log "Request received: #{pathname}"
+    route handle, pathname, response
 
-    content = route handle, pathname
-
-    response.writeHead 200, 'Content-Type': 'text/html'
-    response.write content
-    response.end()
   .listen(8888)
 
   console.log 'Server started.'
