@@ -7,6 +7,7 @@ handle =
   '/':       handlers.start
   '/start':  handlers.start
   '/upload': handlers.upload
+  '/show':   handlers.show
 
 # Starts the simple web server.
 server.start(router.route, handle)

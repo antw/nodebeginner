@@ -8,7 +8,7 @@ exports.start = (route, handle) ->
     pathname = url.parse(request.url).pathname
 
     console.log "Request received: #{pathname}"
-    route handle, pathname, response
+    route handle, pathname, response, request
 
   .listen(8888)
 
