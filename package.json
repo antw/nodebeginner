@@ -1,0 +1,25 @@
+{
+    "name":      "nodebeginner",
+    "version":   "2011-07-10",
+
+    "main":      "./index.coffee",
+
+    "licenses": [{
+        "type":  "Modified BSD License",
+        "url":   "http://www.opensource.org/licenses/bsd-license.php"
+    }],
+
+    "repositories": [{
+        "type":  "git",
+        "url":   "https://github.com/antw/nodebeginner.git"
+    }],
+
+    "dependencies": {
+        "coffee-script": ">= 1.1.1",
+        "formidable":    ">= 1.0.2"
+    },
+
+    "engines": {
+        "node": ">= 0.4.8"
+    }
+}
